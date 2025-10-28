@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz de Personalidade 😄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Quiz de Personalidade 😄</h1>
+    <p>Descobre o teu estilo de comunicação e partilha com os teus amigos!</p>
+
+    <form 
+      name="quiz-personalidade" 
+      method="POST" 
+      data-netlify="true" 
+      netlify-honeypot="bot-field" 
+      id="quizForm"
+      onsubmit="document.getElementById('msg').innerText='✅ Obrigado! As tuas respostas foram enviadas.'">
+      
+      <input type="hidden" name="form-name" value="quiz-personalidade">
+      <p hidden>
+        <label>Não preencher: <input name="bot-field"></label>
+      </p>
+
+      <div class="question">
+        <label>O teu nome:</label>
+        <input type="text" name="nome" placeholder="Escreve o teu nome" required>
+      </div>
+
+      <div class="question">
+        <label>1️⃣ Quanto humor costumas usar nas conversas?</label>
+        <input type="range" name="humor" min="0" max="10" value="5">
+      </div>
+
+      <div class="question">
+        <label>2️⃣ Quão formal és ao comunicar?</label>
+        <input type="range" name="formalidade" min="0" max="10" value="5">
+      </div>
+
+      <div class="question">
+        <label>3️⃣ Gostas de ser detalhado nas tuas respostas?</label>
+        <input type="range" name="detalhismo" min="0" max="10" value="5">
+      </div>
+
+      <div class="question">
+        <label>4️⃣ Usas muitos emojis?</label>
+        <input type="range" name="emojis" min="0" max="10" value="5">
+      </div>
+
+      <div class="question">
+        <label>5️⃣ Consideras-te uma pessoa paciente?</label>
+        <input type="range" name="paciencia" min="0" max="10" value="5">
+      </div>
+
+      <button type="submit">Enviar Respostas</button>
+    </form>
+
+    <p id="msg"></p>
+  </main>
+</body>
+</html>
