@@ -12,11 +12,11 @@
     <p>Descobre o teu estilo de comunicação e partilha com os teus amigos!</p>
 
     <form 
-      name="quiz-personalidade" 
-      method="POST" 
-      data-netlify="true" 
-      netlify-honeypot="bot-field" 
-     netlify-honeypot="bot-field" action="/thank-you">
+        name="quiz-personalidade" 
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/thank-you">
       
       <input type="hidden" name="form-name" value="quiz-personalidade">
       <p hidden>
@@ -57,6 +57,16 @@
     </form>
 
     <p id="msg"></p>
+
+    <form name="quiz-personalidade" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nome">
+  <input type="range" name="humor">
+  <input type="range" name="formalidade">
+  <input type="range" name="detalhismo">
+  <input type="range" name="emojis">
+  <input type="range" name="paciencia">
+</form>
+
   </main>
 </body>
 </html>
