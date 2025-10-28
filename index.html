@@ -11,19 +11,16 @@
     <h1>Quiz de Personalidade 😄</h1>
     <p>Descobre o teu estilo de comunicação e partilha com os teus amigos!</p>
 
-    <!-- Formulário principal -->
     <form 
       name="quiz-personalidade"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      action="/thank-you">
+      id="quizForm">
 
-      <!-- Campo oculto para evitar spam -->
+      <!-- Campo oculto para Netlify -->
       <input type="hidden" name="form-name" value="quiz-personalidade">
-      <p hidden>
-        <label>Não preencher: <input name="bot-field"></label>
-      </p>
+      <p hidden><label>Não preencher: <input name="bot-field"></label></p>
 
       <div class="question">
         <label>O teu nome:</label>
@@ -61,14 +58,23 @@
     <p id="msg"></p>
   </main>
 
-  <!-- Formulário oculto (necessário para o Netlify reconhecer o schema do form) -->
-  <form name="quiz-personalidade" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="nome">
-    <input type="range" name="humor">
-    <input type="range" name="formalidade">
-    <input type="range" name="detalhismo">
-    <input type="range" name="emojis">
-    <input type="range" name="paciencia">
-  </form>
-</body>
-</html>
+  <!-- Script para submissão via JS -->
+  <script>
+    const form = document.getElementById("quizForm");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      msg.textContent = "A enviar respostas...";
+      const formData = new FormData(form);
+
+      try {
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        form.style.display = "none";
+        msg.text
